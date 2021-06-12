@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link href="{{ url_for('static',filename='header.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='homepage.css') }}" rel="stylesheet">
+      <title>Vaccine Finder</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white">
+        <a class="navbar-brand" href="#"><img class="d-inline-block align-top" src="{{ url_for('static',filename='images/vac-logo.png') }}" width="120" height="80" style="margin-left: 25px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/cert">Get Certificate</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/contactUs">Contact Us</a>
+            </li>
+           <form class="form-inline" style="margin-left: 40px;">
+              <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/donation"> Register/ Sign In yourself </button>
+            </form>
+          </ul>
+        </div>
+      </nav>
+
+      <section id="post-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 text-left">
+                        <p>Approved by Goverment of India</p>
+                </div>
+                <div class="col-6 text-right">
+                        <p>Ministry of Health and Family Welfare</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="helpline">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center" style="line-height: 25px; font-size: 20px; font-weight: 700;">Helpline</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 text-center">
+                        <div class="helpine">
+                            <p>Health Ministry</p>
+                            <div class="tab-index">
+                                <p> <i class="fa fa-phone" aria-hidden="true"></i>1075</p>
+                            </div>
+                        </div>
+                </div>
+               <div class="col-3 text-center">
+                        <div class="helpine">
+                            <p>Child</p>
+                            <div class="tab-index">
+                                <p>  <i class="fa fa-phone" aria-hidden="true"></i> 1098</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-3 text-center">
+                        <div class="helpine">
+                            <p>Mental Health</p>
+                            <div class="tab-index">
+                                <p>  <i class="fa fa-phone" aria-hidden="true"></i> 989283823</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-3 text-center">
+                        <div class="helpine">
+                            <p>Senior Citizens</p>
+                            <div class="tab-index">
+                                <p> <i class="fa fa-phone" aria-hidden="true"></i> 14567</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="vaccine-banner"></section>
+    <section id="slot-selection">
+        <div class="container">
+            <div class="row" style="margin-top: 4pc; margin-bottom: 4pc;">
+                <div class="col-12">
+                    <h3 class="text-center">Book your appointment now</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <form>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-4 col-form-label customLabel">Name</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="uniqueId" class="col-sm-4 col-form-label customLabel">Passport</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="uniqueId" placeholder="Enter passport number">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-4 col-form-label customLabel">Email</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="email" placeholder="email@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-4 col-form-label customLabel">Password</label>
+                            <div class="col-sm-8">
+                              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label customLabel" for="exampleCheck1">Above 18</label>
+                        </div>
+                                <button type="submit" style="margin-left: 32pc;" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="how-it-works">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1>
+                        How it Works
+                    </h1>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-3">
+                    <h3>REGISTER YOURSELF</h3>
+                    <p>Register using your Mobile no. or Aadhaar no. or any other Identity docs..</p>
+                </div>
+                <div class="col-3">
+                    <h3>CHOOSE LOCATION</h3>
+                    <p>Select your nearby Vaccine Center for vaccination</p>
+                </div>
+                <div class="col-3">
+                    <h3>CONFIRM YOUR SLOT</h3>
+                    <p>Book your slot to Get Vaccine</p>
+                </div>
+                <div class="col-3">
+                    <h3>ANY QUESTION?</h3>
+                    <p>Please follow our Frequently asked questions (FAQ)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 text-left">
+                    <p> Copyright © 2021 COVID. All Rights Reserved </p>
+                </div>
+                <div class="col-6 text-right">
+                    <p>Group-4 | CSAT Emerging Technologies</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+  </body>
+  </html>
