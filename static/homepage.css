@@ -12,6 +12,10 @@ p {
     font-weight: 600;
 }
 
+.nav-link {
+    cursor: pointer;
+}
+
 #helpline {
     margin-top: 2pc;
 }

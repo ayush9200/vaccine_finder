@@ -1,10 +1,12 @@
-# Ayush Kumar Singh (C0799530) flask
+
 from flask import Flask, request, render_template
 import pymongo
 import Profile
 import User
 import Appointments
 import Organisations
+import AdminPortal
+
 
 app = Flask(__name__)
 
@@ -14,9 +16,30 @@ def intiate_mongoDb_conn():
 
 
 
-@app.route("/home")
+@app.route("/")
 def index():
     return render_template('homepage.html')
+
+
+@app.route("/admin", methods=['GET', 'POST'])
+def admin_panel():
+    if request.method == 'GET':
+        return render_template('login-page.html')
+    else:
+        return render_template('homepage.html')
+
+
+@app.route("/admin-login", methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        user_name = request.form.get("username")
+        password = request.form.get("password")
+        admin = AdminPortal.AdminPortal()
+        action = admin.authenticate(user_name, password)
+        return render_template('login-success.html')
+    else:
+        return render_template('login-fail.html')
+
 
 if __name__ == "__main__":
     app.run()
