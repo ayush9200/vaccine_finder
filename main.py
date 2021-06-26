@@ -36,7 +36,10 @@ def admin_login():
         password = request.form.get("password")
         admin = AdminPortal.AdminPortal()
         action = admin.authenticate(user_name, password)
-        return render_template('login-success.html')
+        if action:
+            return render_template('login-success.html', username=user_name.upper())
+        else:
+            return render_template('login-fail.html')
     else:
         return render_template('login-fail.html')
 
