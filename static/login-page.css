@@ -59,3 +59,8 @@ footer {
     background-color: #ff8900;
     border-color: #ff8900;
 }
+
+.required-field::after {
+    content: " *";
+    color: red;
+}

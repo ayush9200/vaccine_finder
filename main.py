@@ -44,6 +44,40 @@ def admin_login():
         return render_template('login-fail.html')
 
 
+# Started by Dashmeet Kaur
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if request.method == 'GET':
+        return render_template('register.html')
+    else:
+        return render_template('homepage.html')
+
+
+@app.route("/register-login", methods=['GET', 'POST'])
+def register_login():
+    if request.method == 'POST' and request.form["btn"] == "Register":
+        print("Register clicked")
+        user_name = request.form.get("name")
+        passport = request.form.get("passport")
+        email = request.form.get("email")
+        password = request.form.get("inputPassword")
+        action = Appointments.insertNewUser(user_name,passport,email,password)
+
+    elif request.method == 'POST' and request.form["btn"] == "Sign In":
+        print("Sign in clicked")
+        # user_name = request.form.get("username")
+        # password = request.form.get("password")
+        # admin = AdminPortal.AdminPortal()
+        # action = admin.authenticate(user_name, password)
+
+    if action:
+        return render_template('login-success.html', username=user_name.upper())
+    else:
+        return render_template('login-fail.html')
+
+
+
 if __name__ == "__main__":
     app.run()
     intiate_mongoDb_conn()
