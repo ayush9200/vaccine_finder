@@ -6,20 +6,24 @@ import User
 import Appointments
 import Organisations
 import AdminPortal
+import Certificate
 
 
 app = Flask(__name__)
 
 def intiate_mongoDb_conn():
-    connection_string = "mongodb+srv://admin:root@cluster0.0kinj.mongodb.net/sample_restaurants?retryWrites=true&w=majority"
+    #connection_string = "mongodb+srv://admin:root@cluster0.0kinj.mongodb.net/sample_restaurants?retryWrites=true&w=majority"
+    #mongo_client = pymongo.MongoClient(connection_string)
+    connection_string = "mongodb+srv://dbUser:Qwepoi.123@cluster0.bzlp2.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
     mongo_client = pymongo.MongoClient(connection_string)
-
 
 
 @app.route("/")
 def index():
     return render_template('homepage.html')
-
+@app.route("/cert", methods= ['GET','POST'])
+def certificate():
+    return render_template('Certificate.html')
 
 @app.route("/admin", methods=['GET', 'POST'])
 def admin_panel():
@@ -43,16 +47,12 @@ def admin_login():
     else:
         return render_template('login-fail.html')
 
-
-# Started by Dashmeet Kaur
-
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
         return render_template('register.html')
     else:
         return render_template('homepage.html')
-
 
 @app.route("/register-login", methods=['GET', 'POST'])
 def register_login():
@@ -80,6 +80,26 @@ def register_login():
             return render_template('login-success.html', username=user_name.upper())
         else:
             return render_template('user-login-fail.html')
+
+
+@app.route("/cert", methods= ['GET','POST'])
+def Certificate():
+    if request.method=='GET':
+        return render_template('Certificate.html')
+    else:
+        return render_template('homepage.html')
+@app.route('/get-certificate', methods=['GET','POST'])
+def get_certificate():
+    if request.method == 'POST':
+        user_name= request.form.get('userName')
+        passport = request.form.get('passport')
+        password = request.form.get('password')
+        find= Certificate.userCheck(user_name,passport,password)
+        if find:
+            return render_template('certificate-found.html')
+        else:
+            return render_template('user-login-fail.html')
+
 
 
 
