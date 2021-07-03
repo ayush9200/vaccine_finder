@@ -24,9 +24,10 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/about">About Us</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/cert">Get Certificate</a>
-            </li>
+              <form class="nav-item" action="/cert" method="get">
+              <button type="submit" style="background-color:white; border:none" class="nav-link"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/cert"> Get Certificate</button>
+            </form>
+
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/contactUs">Contact Us</a>
             </li>
