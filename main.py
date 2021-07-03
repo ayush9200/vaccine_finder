@@ -81,6 +81,28 @@ def register_login():
         else:
             return render_template('user-login-fail.html')
 
+@app.route("/cert", methods= ['GET','POST'])
+def Certificate():
+    if request.method=='GET':
+        return render_template('Certificate.html')
+    else:
+        return render_template('homepage.html')
+@app.route('/get-certificate', methods=['GET','POST'])
+def get_certificate():
+    if request.method == 'POST':
+        user_name= request.form.get('userName')
+        passport = request.form.get('passport')
+        password = request.form.get('password')
+        find= Certificate.userCheck(user_name,passport,password)
+        if find:
+            return render_template('certificate-found.html')
+        else:
+            return render_template('user-login-fail.html')
+
+
+
+
+
 
 
 if __name__ == "__main__":
