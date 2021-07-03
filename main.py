@@ -63,18 +63,23 @@ def register_login():
         email = request.form.get("email")
         password = request.form.get("inputPassword")
         action = Appointments.insertNewUser(user_name,passport,email,password)
+        if action:
+            return render_template('login-success.html', username=user_name.upper())
+        else:
+            return render_template('user-already-exists.html')
 
     elif request.method == 'POST' and request.form["btn"] == "Sign In":
         print("Sign in clicked")
-        # user_name = request.form.get("username")
-        # password = request.form.get("password")
-        # admin = AdminPortal.AdminPortal()
-        # action = admin.authenticate(user_name, password)
+        user_name = request.form.get("name")
+        passport = request.form.get("passport")
+        email = request.form.get("email")
+        password = request.form.get("inputPassword")
+        action = Appointments.vaidateRegistrarion(user_name, passport, password)
 
-    if action:
-        return render_template('login-success.html', username=user_name.upper())
-    else:
-        return render_template('login-fail.html')
+        if action:
+            return render_template('login-success.html', username=user_name.upper())
+        else:
+            return render_template('user-login-fail.html')
 
 
 
