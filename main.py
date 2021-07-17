@@ -131,13 +131,10 @@ def get_certificate():
         else:
             return render_template('user-login-fail.html')
 
-@app.route('/about_us', methods=['GET','POST'] )
+@app.route('/about)
 def about_us():
-    if request.method=='GET':
-        return render_template('FAQ.html')
-    else:
-        return render_template('homepage.html')
-        
+    return render_template('FAQ.html')
+   
     
 
 
