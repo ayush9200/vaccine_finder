@@ -21,8 +21,8 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="http://127.0.0.1:5000/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/about">About Us</a>
+            <li class="nav-item" action="/about" method="get">
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="http://127.0.0.1:5000/about">About Us</a>
             </li>
               <form class="nav-item" action="/cert" method="get">
               <button type="submit" style="background-color:white; border:none" class="nav-link"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/cert"> Get Certificate</button>
