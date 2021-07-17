@@ -131,6 +131,9 @@ def get_certificate():
         else:
             return render_template('user-login-fail.html')
 
+@app.route('/about_us')
+def about_us():
+    return render_template('FAQ.html')
 
 
 
