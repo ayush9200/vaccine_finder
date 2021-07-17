@@ -132,7 +132,7 @@ def get_certificate():
             return render_template('user-login-fail.html')
 
 @app.route('/about_us', methods=['GET','POST'] )
-def about_us()
+def about_us():
     if request.method=='GET':
         return render_template('FAQ.html')
     else:
