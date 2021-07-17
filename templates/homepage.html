@@ -29,7 +29,7 @@
             </form>
 
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/contactUs">Contact Us</a>
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="contact_us.html">Contact Us</a>
             </li>
            <form class="form-inline" style="margin-left: 40px;" action="/admin" method="get">
             <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" style="margin-right: 1pc;" href="http://127.0.0.1:5000/admin"> Admin </button>
@@ -65,7 +65,7 @@
                         <div class="helpine">
                             <p>Health Ministry</p>
                             <div class="tab-index">
-                                <p> <i class="fa fa-phone" aria-hidden="true"></i>1075</p>
+                                <p> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:1075">1075</a></p>
                             </div>
                         </div>
                 </div>
@@ -73,7 +73,7 @@
                         <div class="helpine">
                             <p>Child</p>
                             <div class="tab-index">
-                                <p>  <i class="fa fa-phone" aria-hidden="true"></i> 1098</p>
+                                <p>  <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:1098"> 1098</a></p>
                             </div>
                         </div>
                 </div>
@@ -81,7 +81,7 @@
                         <div class="helpine">
                             <p>Mental Health</p>
                             <div class="tab-index">
-                                <p>  <i class="fa fa-phone" aria-hidden="true"></i> 989283823</p>
+                                <p>  <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:989283823">989283823</a></p>
                             </div>
                         </div>
                 </div>
@@ -89,13 +89,17 @@
                         <div class="helpine">
                             <p>Senior Citizens</p>
                             <div class="tab-index">
-                                <p> <i class="fa fa-phone" aria-hidden="true"></i> 14567</p>
+                                <p> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:14567"> 14567</a></p>
                             </div>
                         </div>
                 </div>
             </div>
         </div>
     </section>
+    <section id="features">
+        <br>
+    <div _ngcontent-ubl-c113="" class="getVaccinationSection"><div _ngcontent-ubl-c113="" class="container"><h1 _ngcontent-ubl-c113="" class="text-center accessibility-plugin-ac">How To Get Your Vaccination</h1><div _ngcontent-ubl-c113="" class="row mt-5 d-flex justify-content-center"><div _ngcontent-ubl-c113="" class="col-12 col-sm-6 col-md-4 col-lg-4"><div _ngcontent-ubl-c113="" class="card"><img _ngcontent-ubl-c113="" src="https://prod-cdn.preprod.co-vin.in/sandbox/assets/images/vaccination-thumb-1.jpg" alt="largest vaccine drive" class="card-img-top"><div _ngcontent-ubl-c113="" class="card-body"><h3 _ngcontent-ubl-c113="" class="card-title accessibility-plugin-ac">Book An Appointment On <br>CoWIN or Walk Into Any <br>Vaccination Center</h3><p _ngcontent-ubl-c113="" class="card-text text-center"><a _ngcontent-ubl-c113="" href="https://prod-cdn.preprod.co-vin.in/assets/pdf/User_Guide_Citizen%20registration_18%2B.pdf" target="_blank" class="accessibility-plugin-ac" title="How to book your appointment on CoWIN" aria-label="How to book your appointment on CoWIN"> How to book your appointment on CoWIN</a></p></div></div></div><div _ngcontent-ubl-c113="" class="col-12 col-sm-6 col-md-4 col-lg-4"><div _ngcontent-ubl-c113="" class="card"><img _ngcontent-ubl-c113="" src="https://prod-cdn.preprod.co-vin.in/sandbox/assets/images/vaccination-thumb-2.jpg" alt="largest vaccine drive" class="card-img-top"><div _ngcontent-ubl-c113="" class="card-body"><h3 _ngcontent-ubl-c113="" class="card-title accessibility-plugin-ac">Get Your Vaccination <br> Safely at the Time of Your <br> Appointment</h3><p _ngcontent-ubl-c113="" class="card-text text-center"><a _ngcontent-ubl-c113="" target="_blank" class="accessibility-plugin-ac" href="https://prod-cdn.preprod.co-vin.in/assets/pdf/Dos_and_Donts_for_Citizens.pdf" title="Dos and dont's for getting vaccinated" aria-label="Dos and dont's for getting vaccinated">Dos and dont's for getting vaccinated</a></p></div></div></div><div _ngcontent-ubl-c113="" class="col-12 col-sm-6 col-md-4 col-lg-4"><div _ngcontent-ubl-c113="" class="card"><img _ngcontent-ubl-c113="" src="https://prod-cdn.preprod.co-vin.in/sandbox/assets/images/vaccination-thumb-3.jpg" alt="largest vaccine drive" class="card-img-top"><div _ngcontent-ubl-c113="" class="card-body"><h3 _ngcontent-ubl-c113="" class="card-title accessibility-plugin-ac">Download Your Vaccination <br> Certificate from CoWIN <br> and Wait for Dose #2</h3><p _ngcontent-ubl-c113="" class="card-text text-center"><a href="https://www.mpnrc.org/covid-vaccination-certificate-download/">Download Your Vaccine Certificate</a></p></div></div></div></div></div></div><br><br>
+</section>
     <section id="vaccine-banner"></section>
     <section id="slot-selection">
         <div class="container">
@@ -126,20 +130,29 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-4 col-form-label customLabel">Password</label>
+                            <label for="city" class="col-sm-4 col-form-label customLabel">City</label>
                             <div class="col-sm-8">
-                              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                              <input type="text" class="form-control" id="city" placeholder="Enter the name of your city">
                             </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="pin" class="col-sm-4 col-form-label customLabel">Postal/ZIP code</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="pin" placeholder="e.g. 123456">
+                            </div>
+                            </div><br><br>
                         </div>
-                        <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label customLabel" for="exampleCheck1">Above 18</label>
+                        <br>&nbsp;
+                        <div class="form-group form-check" align="center">
+                          <input align="center" style="margin-left:32pc" type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label customLabel" style="margin-left:34pc" for="exampleCheck1">Above 18</label>
                         </div>
-                                <button type="submit" style="margin-left: 32pc;" class="btn btn-primary">Submit</button>
-                      </form>
+                                <button type="submit" style="margin-left: 34pc;" class="btn btn-primary">Submit</button>
+                      </form><br><br>
                 </div>
             </div>
         </div>
+        <br><br>
     </section>
     <section id="how-it-works">
         <div class="container">
@@ -152,7 +165,7 @@
             </div>
             <div class="row text-center">
                 <div class="col-3">
-                    <h3>REGISTER YOURSELF</h3>
+                   <a href="register.html"> <h3>REGISTER YOURSELF</h3> </a>
                     <p>Register using your Mobile no. or Aadhaar no. or any other Identity docs..</p>
                 </div>
                 <div class="col-3">
@@ -164,7 +177,11 @@
                     <p>Book your slot to Get Vaccine</p>
                 </div>
                 <div class="col-3">
-                    <h3>ANY QUESTION?</h3>
+                    <a href="Certificate.html" ><h3>GET CERTIFICATE</h3></a>
+                    <p>Get your Vaccination certificte.</p>
+                </div>
+                <div class="col-3">
+                    <a href="FAQ.html"><h3>ANY QUESTION?</h3></a>
                     <p>Please follow our Frequently asked questions (FAQ)</p>
                 </div>
             </div>
