@@ -15,7 +15,7 @@ def intiate_mongoDb_conn():
     mongo_client = pymongo.MongoClient(connection_string)
 
 
-
+# Started by Ayush
 @app.route("/")
 def index():
     return render_template('homepage.html')
@@ -45,6 +45,7 @@ def admin_login():
     else:
         return render_template('login-fail.html')
 
+# Ended by Ayush
 
 # Started by Dashmeet Kaur
 
@@ -131,7 +132,7 @@ def get_certificate():
         else:
             return render_template('user-login-fail.html')
 
-@app.route('/about)
+@app.route('/about')
 def about_us():
     return render_template('FAQ.html')
    
