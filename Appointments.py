@@ -14,7 +14,7 @@ def insertNewUser(user_name,passport,email,password):
             my_client = pymongo.MongoClient(connection_string)
             db = my_client["Vaccine_Finder"]
             vaccine = db["Appointments"]
-            newUser = {"user_name": user_name, "passport": passport, "email": email, "password": password}
+            newUser = {"user_name": user_name, "passport": passport, "email": email, "password": password,"bookingDate":"0000-00-00"}
             vaccine.insert_one(newUser)
             return True
         return False
@@ -53,6 +53,26 @@ def vaidateRegistrarion(user_name, passport, password):
         for x in result:
             print(x)
             return True
+    return False
+
+
+
+# validate Booking
+def vaidateBooking(user_name, passport, password):
+    connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
+    my_client = pymongo.MongoClient(connection_string)
+    db = my_client["Vaccine_Finder"]
+    mycol = db["Appointments"]
+    clms = {"bookingDate"}
+    result = mycol.find({'$and' : [{'user_name':user_name}, {'passport':passport}, {'password':password}]})
+    print("In validate booking")
+    if result is None:
+        return False
+    else:
+        for x in result:
+            print(x.get('bookingDate'))
+            if x.get('bookingDate') == "0000-00-00":
+                return True
     return False
 
 

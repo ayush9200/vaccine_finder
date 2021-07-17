@@ -6,7 +6,7 @@ import User
 import Appointments
 import Organisations
 import AdminPortal
-
+from flask import Flask, session
 
 app = Flask(__name__)
 
@@ -59,27 +59,57 @@ def register_login():
     if request.method == 'POST' and request.form["btn"] == "Register":
         print("Register clicked")
         user_name = request.form.get("name")
+        session['user_name'] = user_name
         passport = request.form.get("passport")
+        session['passport'] = passport
         email = request.form.get("email")
+        session['email'] = email
         password = request.form.get("inputPassword")
+        session['password'] = password
         action = Appointments.insertNewUser(user_name,passport,email,password)
         if action:
-            return render_template('login-success.html', username=user_name.upper())
+            return render_template('login-success-book.html', username=user_name.upper())
         else:
             return render_template('user-already-exists.html')
 
     elif request.method == 'POST' and request.form["btn"] == "Sign In":
         print("Sign in clicked")
         user_name = request.form.get("name")
+        session['user_name'] = user_name
         passport = request.form.get("passport")
+        session['passport'] = passport
         email = request.form.get("email")
+        session['email'] = email
         password = request.form.get("inputPassword")
+        session['password'] = password
         action = Appointments.vaidateRegistrarion(user_name, passport, password)
-
         if action:
-            return render_template('login-success.html', username=user_name.upper())
+            action = Appointments.vaidateBooking(user_name, passport, password)
+            if action:
+                print("going to sign in")
+                return render_template('login-success-book.html', username=user_name.upper())
+            else:
+                return render_template('login-success-signin.html', username=user_name.upper())
         else:
             return render_template('user-login-fail.html')
+
+
+
+@app.route("/book-my-apptmnt", methods=['GET', 'POST'])
+def book_appointment():
+    if request.method == 'POST':
+        print("in book appointment clicked")
+        booking_date = request.form.get("book-date")
+        print(booking_date)
+        user_name = session['user_name']
+        passport = session['passport']
+        email = session['email']
+        password = session['password']
+        return render_template('booking-success.html', username=user_name.upper(),booking_date=booking_date)
+    else:
+        return render_template('login-fail.html')
+
+
 
 @app.route("/cert", methods= ['GET','POST'])
 def Certificate():
@@ -90,7 +120,7 @@ def Certificate():
 @app.route('/get-certificate', methods=['GET','POST'])
 def get_certificate():
     if request.method == 'POST':
-        user_name= request.form.get('userName')
+        user_name = request.form.get('userName')
         passport = request.form.get('passport')
         password = request.form.get('password')
         find= Certificate.userCheck(user_name,passport,password)
@@ -106,5 +136,6 @@ def get_certificate():
 
 
 if __name__ == "__main__":
+    app.config['SECRET_KEY'] = "abcd"
     app.run()
     intiate_mongoDb_conn()
