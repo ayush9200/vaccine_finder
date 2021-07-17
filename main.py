@@ -11,7 +11,7 @@ from flask import Flask, session
 app = Flask(__name__)
 
 def intiate_mongoDb_conn():
-    connection_string = "mongodb+srv://admin:root@cluster0.0kinj.mongodb.net/sample_restaurants?retryWrites=true&w=majority"
+    connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
     mongo_client = pymongo.MongoClient(connection_string)
 
 
@@ -36,8 +36,10 @@ def admin_login():
         password = request.form.get("password")
         admin = AdminPortal.AdminPortal()
         action = admin.authenticate(user_name, password)
+        appointment_list_status = admin.getAppointmentStatus()
+        vaccination_status = admin.getVaccinationStatus()
         if action:
-            return render_template('login-success.html', username=user_name.upper())
+            return render_template('login-success.html', username=user_name.upper(), og_appointment=appointment_list_status[0], upg_appointment=appointment_list_status[1], cld_appointment=appointment_list_status[2], ttl_appointment=appointment_list_status[3], available_vc=vaccination_status[0], unused_vc=vaccination_status[1], expired_vc=vaccination_status[2], days_vc=vaccination_status[3])
         else:
             return render_template('login-fail.html')
     else:

@@ -36,15 +36,55 @@
             </div>
           </nav>
         <section id="login_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1 style="margin-top:10pc;">Welcome {{ username }} !</h1>
-                        <h5>Manage your inventory here</h5>
+    <div class="container">
+        <div class="page-header">
+            <h1 style="margin-top:10pc;">Welcome {{ username }} !</h1>
+            <h5>Manage your inventory here</h5>
+        </div>
+        <div class="row">
+            <div class="col-3">
+              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-appointment-tab" data-toggle="pill" href="#v-pills-appointment" role="tab" aria-controls="v-pills-appointment" aria-selected="true">Appointment Status</a>
+                <a class="nav-link" id="v-pills-vaccine-tab" data-toggle="pill" href="#v-pills-vaccine" role="tab" aria-controls="v-pills-vaccine" aria-selected="false">Vaccine Availability</a>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="tab-content" id="v-pills-tabContent">
+                  <!--Appointment Management-->
+                <div class="tab-pane fade show active" id="v-pills-appointment" role="tabpanel" aria-labelledby="v-pills-appointment-tab">
+                    <div class="container">
+                        <div class="row">
+                            <h3>Ongoing appointments : {{ og_appointment }}</h3><br>
+                            <h3>Cancelled appointments : {{ cld_appointment }}</h3><br>
+                            <h3>Upcoming appointments : {{ upg_appointment }}</h3>
+                            <br>
+                            <h3> Total appointment completed so far : {{ ttl_appointment }}</h3>
+                        </div>
                     </div>
                 </div>
+                <!--Appointment Management-->
+
+                <!--Vaccine Management-->
+                <div class="tab-pane fade" id="v-pills-vaccine" role="tabpanel" aria-labelledby="v-pills-vaccine-tab">
+                    <div class="container">
+                        <div class="row">
+                            <h3>Vaccine available : {{ available_vc }}</h3><br>
+                            <h3>Unused vaccines : {{ unused_vc }}</h3><br>
+                            <h3>Expired : {{ expired_vc }}</h3>
+                            <br>
+                            <h3> Next Vaccine package availability date : After {{ days_vc }} from now</h3>
+                        </div>
+                    </div>
+                </div>
+                <!--Vaccine Management-->
+
+
+
+              </div>
             </div>
-        </section>
+          </div>
+    </div>
+</section>
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
