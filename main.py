@@ -12,10 +12,9 @@ app = Flask(__name__)
 
 
 def intiate_mongoDb_conn():
-    #connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-    #mongo_client = pymongo.MongoClient(connection_string)
-    connection_string = "mongodb+srv://dbUser:Qwepoi.123@cluster0.bzlp2.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority";
-    my_client = pymongo.MongoClient(connection_string)
+    connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
+    mongo_client = pymongo.MongoClient(connection_string)
+
 
 
 # Started by Ayush
