@@ -29,7 +29,7 @@
                 <form class="form-inline" style="margin-left: 40px;" action="/admin" method="get">
             <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" style="margin-right: 1pc;" href="http://127.0.0.1:5000/admin"> Admin </button>
              </form>
-              <form class="form-inline" action="/Certificate" method="get">
+              <form class="form-inline" action="/cert" method="get">
               <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/sign-in"> Register/ Sign In yourself </button>
             </form>
               </ul>
@@ -45,12 +45,12 @@
                                 <form id="login-form" class="form" action="http://127.0.0.1:5000/get-certificate" method="POST">
                                     <h3 class="text-center text-info">Get Certificate</h3>
                                      <div class="form-group">
-                                        <label for="passport" class="text-info">User Name:</label><br>
-                                        <input type="text" name="userName" id="userName" class="form-control">
+                                        <label for="name" class="text-info">User Name:</label><br>
+                                        <input type="text" name="name" id="name" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="passport" class="text-info">Passport Number:</label><br>
-                                        <input type="text" name="passportnumber" id="passportnumber" class="form-control">
+                                        <input type="text" name="passport" id="passport" class="form-control">
                                     </div>
 
                                     <div class="form-group">
@@ -58,7 +58,7 @@
                                         <input type="password" name="inputPassword" id="inputPassword" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit"  name="submit" class="btn btn-primary btn-md" value="Get Certificate">
+                                        <input type="submit"  name="btn" class="btn btn-primary btn-md" value="Get Certificate">
                                     </div>
                                 </form>
                             </div>
