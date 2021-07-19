@@ -4,6 +4,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <link href="{{ url_for('static',filename='header.css') }}" rel="stylesheet">
         <link href="{{ url_for('static',filename='login-page.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static',filename='certificate.css') }}" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white">
@@ -35,17 +36,28 @@
               </ul>
             </div>
           </nav>
-        <section id="login_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1 style="text-align: center;margin-top:10pc;">Welcome {{ userName }} !</h1><br>
-                        <h2>Congratulations you are vaccinated</h2><br><br>
-                        <h4>Note: Please wear mask in public places.</h4>
+        <section id="main_section">
+            <div class="container1">
+                <div class="row1">
+                    <div class="border-pattern">
+                       <div class="content">
+                           <div class="inner-content">
+                               <h3 style="font-family: 'Brush Script MT','cursive';">Minister of Health & Family Welfare </h3><br>
+                               <h2 style="font-family: 'Brush Script MT','cursive';">Central Government</h2>
+                               <h1>Certificate for Covid-19 Vaccination</h1><br>
+                               <p style="color:green;font-size:26pt">{{ username }}</p>
+                               <h3>has Received the Covid-19 vaccine dose.</h3><br><br>
+                               <h4 style="color:red"><u><b>Note:</b> Please wear mask at public places.</u></h4>
+                                 <div class="badge">
+                                 </div>
+                               </div>
+                           </div>
+                       </div>
+
                     </div>
                 </div>
             </div>
-        </section>
+        </section><br><br><br><br><br><br><br><br><br><br><br><br>
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
