@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <link href="{{ url_for('static',filename='header.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static',filename='login-page.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static',filename='contact_us.css') }}" rel="stylesheet">
 	<meta charset="utf-8">
 	<title>Contact Us</title>
 </head>
-<style type="text/css">
-	/* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-}
+<br><br><br>
 
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-/* Add a background color and some padding around the form */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-</style>
 <body>
-<div class="container">
-  <form action="action_page.php">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white">
+            <a class="navbar-brand" href="http://127.0.0.1:5000/"><img class="d-inline-block align-top" src="{{ url_for('static',filename='images/vac-logo.png') }}" width="120" height="80" style="margin-left: 25px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/cert">Get Certificate</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/contactUs">Contact Us</a>
+                </li>
+                <form class="form-inline" style="margin-left: 40px;" action="/admin" method="get">
+            <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" style="margin-right: 1pc;" href="http://127.0.0.1:5000/admin"> Admin </button>
+             </form>
+              <form class="form-inline" action="/register" method="get">
+              <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle = "collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/sign-in"> Register/ Sign In yourself </button>
+            </form>
+              </ul>
+            </div>
+          </nav>
+	<p><span style="color:black"> <b>SEND US A MESSAGE</b> </span> </p>
 
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name">
+	<div class="container">
+	  <form action="action_page.php">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name">
+	    <label for="fname">First Name</label>
+	    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+	     <br>
+	    <label for="lname">Last Name</label>
+	    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+	    <br>
+	    <label for="phone">Phone Number</label>
+	    <input type="text" id="Phone" name="phone number" placeholder="Caller Id..">
+	    <br>
+	    <label for="subject">Subject</label>
+	    <textarea id="subject" name="subject" placeholder="QUERIES OR SUGGESTIONS.." style="height:200px"></textarea>
+	    <br>
+	    <input type="submit" value="Submit">
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">India</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
-
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Please write your concern....." style="height:200px"></textarea>
-
-    <input type="submit" value="Submit">
-
-  </form>
-</div>
-</body>
+	  </form>
+	</div>
+         <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <p> Copyright © 2021 COVID. All Rights Reserved </p>
+                    </div>
+                    <div class="col-6 text-right">
+                        <p>Group-4 | CSAT Emerging Technologies</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+	</body>
 </html>
