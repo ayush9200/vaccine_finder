@@ -11,14 +11,14 @@ import smtplib
 
 class TriggerEmail:
 
-    def send_email(self, subject, body):
+    def send_email(self, subject, body,userEmail):
         try:
             server = smtplib.SMTP('smtp.gmail.com:587')
             server.ehlo()
             server.starttls()
-            server.login('ayushsingh9200@gmail.com', '*****')
+            server.login('dashmeetk29@gmail.com', 'Dashmeetpassword@123')
             message = f'Subject: {subject}\n\n{body}'
-            server.sendmail('ayushsingh9200@gmail.com', 'dashmeetk29@gmail.com', message)
+            server.sendmail('dashmeet29@gmail.com',userEmail, message)
             server.quit()
         except smtplib.SMTPResponseException as er:
             print('Email error - > ' + er.smtp_error)

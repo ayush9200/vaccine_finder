@@ -7,6 +7,7 @@ import Organisations
 import AdminPortal
 from Certificate import userFind
 from flask import Flask, session
+import triggerEmail
 
 app = Flask(__name__)
 
@@ -116,6 +117,12 @@ def book_appointment():
         passport = session['passport']
         email = session['email']
         password = session['password']
+        print(email)
+        triggerEmailObj = triggerEmail.TriggerEmail()
+        triggerEmailObj.send_email("Appointment booked for " + user_name + " on " + booking_date,
+                                             "Hello Dear \n" + user_name + "Your appointment for covid-19 vaccination" +
+                                             " on date selected " + booking_date + " is confirmed!\n\n" +
+                                            "Put your mask on and stay safe.\nRegards,\n Lambton Covid-19 team",email)
         return render_template('booking-success.html', username=user_name.upper(), booking_date=booking_date)
     else:
         return render_template('login-fail.html')
