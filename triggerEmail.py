@@ -16,7 +16,7 @@ class TriggerEmail:
             server = smtplib.SMTP('smtp.gmail.com:587')
             server.ehlo()
             server.starttls()
-            server.login('dashmeetk29@gmail.com', 'Dashmeetpassword@123')
+            server.login('dashmeetk29@gmail.com', 'Dashmeetpassword')
             message = f'Subject: {subject}\n\n{body}'
             server.sendmail('dashmeet29@gmail.com',userEmail, message)
             server.quit()
