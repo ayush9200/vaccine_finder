@@ -3,6 +3,9 @@
 
 import User
 import pymongo
+from datetime import date
+import datetime
+
 
 #insert new user
 def insertNewUser(user_name,passport,email,password):
@@ -76,9 +79,21 @@ def vaidateBooking(user_name, passport, password):
     return False
 
 
-# Method will create user profile based on info from client side
-def intiate_appointment():
-    pass
+# Method will get the date of an already booked item, this will be further used to diaplay result
+def getAlreadyBookedDate(user_name, passport,email):
+    connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
+    my_client = pymongo.MongoClient(connection_string)
+    db = my_client["Vaccine_Finder"]
+    mycol = db["Appointments"]
+    clms = {"bookingDate"}
+    result = mycol.find({'$and': [{'user_name': user_name}, {'passport': passport}, {'email': email}]})
+    print("In get already booked date")
+    if result is None:
+        return False
+    else:
+        for x in result:
+            print(x.get('bookingDate'))
+    return x.get('bookingDate')
 
 # Method will update existing appointment
 def update_appointment():
@@ -86,13 +101,32 @@ def update_appointment():
 
 
 # Method will retrieve all appointments from Database based on unique id
-def get_appointment_details_byId():
-    pass
+def validate_appointment_date(bookingDate):
+    splt = bookingDate.split("-", 3)
+    # print(splt[0])
+    # print(splt[1])
+    # print(splt[2])
+    bookingDate = datetime.date(int(splt[0]), int(splt[1]), int(splt[2]))
+    print(bookingDate)
+    today = date.today()
+    print("Today's date:", today)
+    if bookingDate > today:
+        print("Date is correct")
+        return True
+    else:
+        return False
 
 
-# Method to retrieve all appointments
-def get_all_appointment_details():
-    pass
+# Method to finally update appointment in database
+def bookAppointment(user_name,passport,email,booking_date):
+    print("in update boking")
+    connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
+    my_client = pymongo.MongoClient(connection_string)
+    db = my_client["Vaccine_Finder"]
+    vaccine = db["Appointments"]
+    myquery = {"user_name": user_name, "passport": passport, "email": email}
+    newvalues = {"$set": {"bookingDate": booking_date}}
+    vaccine.update_one(myquery, newvalues)
 
 
 

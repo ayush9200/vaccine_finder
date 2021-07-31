@@ -8,6 +8,7 @@ import AdminPortal
 from Certificate import userFind
 from flask import Flask, session
 import triggerEmail
+import calendar
 
 app = Flask(__name__)
 
@@ -102,7 +103,14 @@ def register_login():
                 print("going to sign in")
                 return render_template('login-success-book.html', username=user_name.upper())
             else:
-                return render_template('login-success-signin.html', username=user_name.upper())
+                appointmentDate = Appointments.getAlreadyBookedDate(user_name, passport,email)
+                print("Already booked date is " + appointmentDate)
+                splt = appointmentDate.split("-", 3)
+                yr = splt[0]
+                date = splt[2]
+                monthName = calendar.month_name[int(splt[1][1:])]
+                return render_template('login-success-signin.html', username=user_name.upper(),
+                                       appointmentDate = appointmentDate, year=yr, date=date, monthName=monthName)
         else:
             return render_template('user-login-fail.html')
 
@@ -117,13 +125,15 @@ def book_appointment():
         passport = session['passport']
         email = session['email']
         password = session['password']
-        print(email)
-        triggerEmailObj = triggerEmail.TriggerEmail()
-        triggerEmailObj.send_email("Appointment booked for " + user_name + " on " + booking_date,
-                                             "Hello Dear \n" + user_name + "Your appointment for covid-19 vaccination" +
-                                             " on date selected " + booking_date + " is confirmed!\n\n" +
-                                            "Put your mask on and stay safe.\nRegards,\n Lambton Covid-19 team",email)
-        return render_template('booking-success.html', username=user_name.upper(), booking_date=booking_date)
+        validDate = Appointments.validate_appointment_date(booking_date)
+        if validDate == True:
+            Appointments.bookAppointment(user_name,passport,email,booking_date)
+            triggerEmailObj = triggerEmail.TriggerEmail()
+            triggerEmailObj.send_email("Appointment booked for " + user_name + " on " + booking_date,
+                                       "Hello Dear \n" + user_name + "Your appointment for covid-19 vaccination" +
+                                       " on date selected " + booking_date + " is confirmed!\n\n" +
+                                       "Put your mask on and stay safe.\nRegards,\n Lambton Covid-19 team", email)
+            return render_template('booking-success.html', username=user_name.upper(), booking_date=booking_date)
     else:
         return render_template('login-fail.html')
 
