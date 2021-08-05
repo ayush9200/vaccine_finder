@@ -40,15 +40,34 @@
                 <div class="row">
                     <div class="col-12">
                         <h1 style="margin-top:10pc;">Welcome {{ username }} !</h1>
-                        <h5>Select your Appointment date </h5>
+                        <h5>Make an appointment!</h5>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style=" clear: both; display: block;">
                     <div class="border border-light p-3 mb-4">
                         <div class="d-flex align-items-center justify-content-center">
                             <form id="book-date-form" class="form" action="http://127.0.0.1:5000/book-my-apptmnt" method="POST">
-                                <input type="date" id="bookDate" name="book-date" min="2021-07-17" max="2022-12-31">
+                                <h5>Select your Appointment date </h5>
+                                <input type="date" id="bookDate" name="book-date" min="2021-07-17" max="2022-12-31" style=" height: 50px; background-color: #FFC002;"s><br><br>
+
+                                <h5>Select your Appointment Location </h5>
+                                <div class="box">
+                                    <select id="bookLocation" name="book-location">
+                                        <option>Please select a location</option>
+                                        <option>Alberta</option>
+                                        <option>British Columbia</option>
+                                        <option>Manitoba</option>
+                                        <option>New Brunswick</option>
+                                        <option>Newfoundland</option>
+                                        <option>Nova Scotia</option>
+                                        <option>Ontario</option>
+                                        <option>Prince Edward Island</option>
+                                        <option>Quebec</option>
+                                        <option>Saskatchewan</option>
+                                    </select><br><br>
+
                                 <input type="submit" id="bookDateBtn" name="btn" class="btn btn-primary btn-md" value="BOOK NOW !">
+                                </div>
                             </form>
                         </div>
                     </div>

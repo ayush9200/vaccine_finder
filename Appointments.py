@@ -118,7 +118,7 @@ def validate_appointment_date(bookingDate):
 
 
 # Method to finally update appointment in database
-def bookAppointment(user_name,passport,email,booking_date):
+def bookAppointment(user_name,passport,email,booking_date,book_location):
     print("in update boking")
     connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
     my_client = pymongo.MongoClient(connection_string)
@@ -127,6 +127,17 @@ def bookAppointment(user_name,passport,email,booking_date):
     myquery = {"user_name": user_name, "passport": passport, "email": email}
     newvalues = {"$set": {"bookingDate": booking_date}}
     vaccine.update_one(myquery, newvalues)
+
+    vaccineLocation = db["VaccineLocations"]
+    clms = {"vaccinesLeft"}
+    result = vaccineLocation.find({"locationName": book_location})
+    print("In update location booking")
+    for x in result:
+        vaccinesLeft = x.get('vaccinesLeft')
+    updatevaccinesLeft = int(vaccinesLeft - 1)
+    myquery = {"locationName": book_location}
+    newvalues = {"$set": {"vaccinesLeft": int(updatevaccinesLeft)}}
+    vaccineLocation.update_one(myquery, newvalues)
 
 
 

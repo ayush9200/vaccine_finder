@@ -121,19 +121,21 @@ def book_appointment():
         print("in book appointment clicked")
         booking_date = request.form.get("book-date")
         print(booking_date)
+        book_location = request.form.get("book-location")
+        print(book_location)
         user_name = session['user_name']
         passport = session['passport']
         email = session['email']
         password = session['password']
         validDate = Appointments.validate_appointment_date(booking_date)
         if validDate == True:
-            Appointments.bookAppointment(user_name,passport,email,booking_date)
+            Appointments.bookAppointment(user_name,passport,email,booking_date,book_location)
             triggerEmailObj = triggerEmail.TriggerEmail()
-            triggerEmailObj.send_email("Appointment booked for " + user_name + " on " + booking_date,
+            triggerEmailObj.send_email("Appointment booked for " + user_name + " on " + booking_date + " at " + book_location,
                                        "Hello Dear \n" + user_name + "Your appointment for covid-19 vaccination" +
-                                       " on date selected " + booking_date + " is confirmed!\n\n" +
+                                       " on date selected " + booking_date + " at " + book_location+ " is confirmed!\n\n" +
                                        "Put your mask on and stay safe.\nRegards,\n Lambton Covid-19 team", email)
-            return render_template('booking-success.html', username=user_name.upper(), booking_date=booking_date)
+            return render_template('booking-success.html', username=user_name.upper(), booking_date=booking_date,book_location=book_location)
     else:
         return render_template('login-fail.html')
 
