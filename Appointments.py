@@ -17,7 +17,7 @@ def insertNewUser(user_name,passport,email,password):
             my_client = pymongo.MongoClient(connection_string)
             db = my_client["Vaccine_Finder"]
             vaccine = db["Appointments"]
-            newUser = {"user_name": user_name, "passport": passport, "email": email, "password": password,"bookingDate":"0000-00-00"}
+            newUser = {"user_name": user_name, "passport": passport, "email": email, "password": password,"bookingDate":"0000-00-00","vaccinationCompleted":False}
             vaccine.insert_one(newUser)
             return True
         return False
