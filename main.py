@@ -66,10 +66,7 @@ def vaccinationUpdate():
         passportNo = request.form.get("passport")
         admin = AdminPortal.AdminPortal()
         updated = admin.markUserAsVaccinated(passportNo)
-        if updated:
-            return True;
-        else:
-            return False;
+    return render_template('vaccination-update.html', updateStatus=updated);
 
 # Ended by Ayush
 
