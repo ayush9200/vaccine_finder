@@ -65,6 +65,20 @@ footer {
     color: red;
 }
 
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #836816;
+    color: #fff;
+}
+
+.nav-link {
+    color: #000000;
+}
+
+.btn-custom {
+    background-color: #836816;
+    color: #fff;
+}
+
 
 .box select {
   background-color: #FFC002;

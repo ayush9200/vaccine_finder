@@ -1,7 +1,10 @@
 <html>
     <head>
         <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>    
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
         <link href="{{ url_for('static',filename='header.css') }}" rel="stylesheet">
         <link href="{{ url_for('static',filename='login-page.css') }}" rel="stylesheet">
     </head>
@@ -36,17 +39,18 @@
             </div>
           </nav>
         <section id="login_section">
-    <div class="container">
+    <div class="container-fluid">
         <div class="page-header">
             <h1 style="margin-top:10pc;">Welcome {{ username }} !</h1>
-            <h5>Overview</h5>
+           <br>
         </div>
         <div class="row">
             <div class="col-3">
               <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-appointment-tab" data-toggle="pill" href="#v-pills-appointment" role="tab" aria-controls="v-pills-appointment" aria-selected="true">Appointment Status</a>
-                <a class="nav-link" id="v-pills-vaccine-tab" data-toggle="pill" href="#v-pills-vaccine" role="tab" aria-controls="v-pills-vaccine" aria-selected="false">Vaccine Availability</a>
-                <a class="nav-link" id="v-all-users-tab" data-toggle="pill" href="#v-all-users" role="tab" aria-controls="v-all-users" aria-selected="false">View all users</a>
+                <a class="nav-link active" id="v-pills-appointment-tab" data-toggle="tab" href="#v-pills-appointment" role="tab" aria-controls="v-pills-appointment" aria-selected="true">Appointment Status</a>
+                <a class="nav-link" id="v-pills-vaccine-tab" data-toggle="tab" href="#v-pills-vaccine" role="tab" aria-controls="v-pills-vaccine" aria-selected="false">Vaccine Availability</a>
+                <a class="nav-link" id="v-pills-users-tab" data-toggle="tab" href="#v-pills-users" role="tab" aria-controls="v-pills-users" aria-selected="false">Users Information</a>
+				<a class="nav-link" id="v-pills-update-tab" data-toggle="tab" href="#v-pills-update" role="tab" aria-controls="v-pills-update" aria-selected="false">Update Vaccination Drive</a>
               </div>
             </div>
             <div class="col-9">
@@ -54,21 +58,28 @@
                   <!--Appointment Management-->
                 <div class="tab-pane fade show active" id="v-pills-appointment" role="tabpanel" aria-labelledby="v-pills-appointment-tab">
                     <div class="container">
-                        <div class="row">
-                            <h3>Ongoing appointments : {{ og_appointment }}    &nbsp;</h3><br>
-                            <h3>Cancelled appointments : {{ cld_appointment }}</h3><br>
-                            <h3>Upcoming appointments : {{ upg_appointment }}</h3>
-                            <br>
-                            <h3> Total appointment so far : {{ ttl_appointment }}</h3>
+                        <div class="row text-dark">
+                            <div class="col-12">
+                                 <h3>Ongoing appointments : {{ og_appointment }}    &nbsp;</h3>
+                            </div>
+                            <div class="col-12">
+                                <h3>Cancelled appointments : {{ cld_appointment }}</h3>
+                            </div>
+                            <div class="col-12">
+                                <h3>Upcoming appointments : {{ upg_appointment }}</h3>
+                            </div>
+                            <div class="col-12">
+                                <h3> Total appointment : {{ ttl_appointment }}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!--Appointment Management-->
 
                 <!--Vaccine Management-->
-                <div class="tab-pane fade" id="v-all-users" role="tabpanel" aria-labelledby="v-all-users">
+                <div class="tab-pane fade" id="v-pills-vaccine" role="tabpanel" aria-labelledby="v-pills-vaccine-tab">
                     <div class="container">
-                        <div class="row">
+                        <div class="row text-dark">
                             <h3>Vaccine available : {{ available_vc }}</h3><br>
                             <h3>Unused vaccines : {{ unused_vc }}</h3><br>
                             <h3>Expired : {{ expired_vc }}</h3>
@@ -80,15 +91,109 @@
                 <!--Vaccine Management-->
 
                <!--View all Users-->
-                <div class="tab-pane fade" id="v-pills-vaccine" role="tabpanel" aria-labelledby="v-pills-vaccine-tab">
+                <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
                     <div class="container">
                         <div class="row">
-                            <h1> dashy </h1>
+                            <div class="container-xl">
+                            <div class="table-responsive">
+                                <div class="table-wrapper">
+                                    <div class="table-title">
+                                        <div class="row">
+                                            <div class="col-sm-5 text-dark">
+                                                <h2>User <b>Details</b></h2>
+                                            </div>
+                                            <div class="col-sm-7"></div>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr class="btn-custom">
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Date of Appointment</th>
+                                                <th>Passport No</th>
+                                                <th>Status</th>
+                                                <th>Email ID</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for item in data %}
+                                            <tr>
+                                                <td>{{item.count}}</td>
+                                                <td>{{item.name}}</a></td>
+                                                <td>{{item.bookingDate}}</td>
+                                                <td>{{item.passport}}</td>
+												{% if item.status %}
+													<td><span class="status text-success">&bull;</span> Done</td>
+												{% else %}
+													<td><span class="status text-danger">&bull;</span> Booked</td>
+												{% endif %}
+                                                <td>{{item.email}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
+				 <!--View all Users-->
 
-
+				 <!--Update Users info -->
+                <div class="tab-pane fade" id="v-pills-update" role="tabpanel" aria-labelledby="v-pills-update-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="container-xl">
+                            <div class="table-responsive">
+                                <div class="table-wrapper">
+                                    <div class="table-title">
+                                        <div class="row">
+                                            <div class="col-sm-5 text-dark">
+                                                <h2>Update <b>Details</b></h2>
+                                            </div>
+                                            <div class="col-sm-7"></div>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr class="btn-custom">
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Date of Appointment</th>
+                                                <th>Passport No</th>
+                                                <th>Vaccination Check</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for item in pendingUserDataList %}
+                                            <tr>
+                                                 <form class="form" action="http://127.0.0.1:5000/vaccination-update" method="POST">
+                                                    <td name="count">{{item.count}}</td>
+                                                    <td name="name">{{item.name}}</a></td>
+                                                    <td name="bookingDate">{{item.bookingDate}}</td>
+                                                    <td name="passport">{{item.passport}}</td>
+                                                     <input type="hidden" name="passport" value="{{item.passport}}" />
+                                                    <td name="checkbox"><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">Mark as Vaccinated</label>
+                                                    </td>
+                                                    <td>
+                                                       <input type="submit" name="submit" class="btn btn-primary btn-custom" value="Update">
+                                                    </td>
+                                                  </form>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+				 <!--Update Users info -->
 
               </div>
             </div>

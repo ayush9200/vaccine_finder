@@ -10,6 +10,8 @@ from flask import Flask, session
 import triggerEmail
 import calendar
 
+from User import User
+
 app = Flask(__name__)
 
 
@@ -42,6 +44,8 @@ def admin_login():
         action = admin.authenticate(user_name, password)
         appointment_list_status = admin.getAppointmentStatus()
         vaccination_status = admin.getVaccinationStatus()
+        wholeUserData = admin.getAllUserDetails()
+        pendingUserList = admin.getAllNonVaccinatedUsers()
         if action:
             return render_template('login-success.html', username=user_name.upper(),
                                    og_appointment=appointment_list_status[0],
@@ -49,16 +53,28 @@ def admin_login():
                                    cld_appointment=appointment_list_status[2],
                                    ttl_appointment=appointment_list_status[3], available_vc=vaccination_status[0],
                                    unused_vc=vaccination_status[1], expired_vc=vaccination_status[2],
-                                   days_vc=vaccination_status[3])
+                                   days_vc=vaccination_status[3], data=wholeUserData, pendingUserDataList=pendingUserList)
         else:
             return render_template('login-fail.html')
     else:
         return render_template('login-fail.html')
 
 
+@app.route("/vaccination-update", methods=['GET', 'POST'])
+def vaccinationUpdate():
+    if request.method == 'POST':
+        passportNo = request.form.get("passport")
+        admin = AdminPortal.AdminPortal()
+        updated = admin.markUserAsVaccinated(passportNo)
+        if updated:
+            return True;
+        else:
+            return False;
+
 # Ended by Ayush
 
 # Started by Dashmeet Kaur
+
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -146,6 +162,8 @@ def Certificate():
         return render_template('Certificate.html')
     else:
         return render_template('homepage.html')
+
+
 @app.route("/get-certificate", methods=['GET','POST'])
 def get_certificate():
     if request.method == 'POST' and request.form["btn"] == "Get Certificate":
