@@ -100,3 +100,17 @@ class AdminPortal:
         except:
             return False
 
+    def getVaccineStatusLocationWise(self):
+        vaccineDataList = []
+        try:
+            connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
+            my_client = pymongo.MongoClient(connection_string)
+            db = my_client["Vaccine_Finder"]
+            vaccine_collection = db["VaccineLocations"]
+            listFromMongo = vaccine_collection.find()
+            for data in listFromMongo:
+                vaccineData = {"count": int(data["vaccinesLeft"]), "locationName": data["locationName"]}
+                vaccineDataList.append(vaccineData)
+        except:
+            return False
+        return vaccineDataList

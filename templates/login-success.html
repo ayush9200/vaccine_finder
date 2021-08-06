@@ -79,12 +79,28 @@
                 <!--Vaccine Management-->
                 <div class="tab-pane fade" id="v-pills-vaccine" role="tabpanel" aria-labelledby="v-pills-vaccine-tab">
                     <div class="container">
-                        <div class="row text-dark">
-                            <h3>Vaccine available : {{ available_vc }}</h3><br>
-                            <h3>Unused vaccines : {{ unused_vc }}</h3><br>
-                            <h3>Expired : {{ expired_vc }}</h3>
-                            <br>
-                            <h3> Next Vaccine package availability date : After {{ days_vc }} from now</h3>
+                        <div class="row">
+							 {% for item in vaccineData %}
+									<div class="col-xs-6 col-md-3" style="padding: 20px;">
+										{% if item.count > 150 %}
+											<div class="panel status panel-success alert-success">
+										{% elif item.count > 50  %}
+											<div class="panel status panel-warning alert-warning">
+										{% else %}
+											<div class="panel status panel-danger alert-danger">
+										{% endif %}
+											<div class="panel-heading">
+												<h1 class="panel-title text-center">{{item.count}}</h1>
+											</div>
+                                                <br>
+                                                <br>
+                                                <hr>
+											<div class="panel-body text-center">
+												<strong>{{item.locationName}}</strong>
+											</div>
+										</div>
+									</div>
+							 {% endfor %}
                         </div>
                     </div>
                 </div>
