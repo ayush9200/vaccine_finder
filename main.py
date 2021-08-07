@@ -9,6 +9,7 @@ from Certificate import userFind
 from flask import Flask, session
 import triggerEmail
 import calendar
+import contactUs
 
 from User import User
 
@@ -174,10 +175,40 @@ def get_certificate():
         else:
             return render_template('user-login-fail.html')
 
+#
+# @app.route('/about')
+# def about_us():
+#     return render_template('FAQ.html')
 
-@app.route('/about')
+
+@app.route("/faq", methods=['GET','POST'])
 def about_us():
-    return render_template('FAQ.html')
+    if request.method=='GET':
+        return render_template('FAQ.html')
+    else:
+        return render_template('homepage.html')
+
+@app.route("/contactUs", methods=['GET','POST'])
+def contact_us():
+    if request.method=='GET':
+        return render_template('contact_us.html')
+    else:
+        return render_template('homepage.html')
+
+@app.route("/contactFormSubmitted", methods=['GET','POST'])
+def contactFormSubmitted():
+    if request.method == 'POST':
+        print("Contact us form submitted")
+        firstname= request.form.get('firstname')
+        lastname = request.form.get('lastname')
+        subject = request.form.get('subject')
+        phoneNum = request.form.get('phonenumber')
+        action = contactUs.insertNewFeedback(firstname,lastname,subject,phoneNum)
+        if action:
+            return render_template('thanksForFeedback.html',username=firstname.upper())
+        else:
+             return render_template('user-login-fail.html')
+
 
 
 if __name__ == "__main__":
