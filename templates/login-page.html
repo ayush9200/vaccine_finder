@@ -6,35 +6,48 @@
         <link href="{{ url_for('static',filename='login-page.css') }}" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white">
-            <a class="navbar-brand" href="http://127.0.0.1:5000/"><img class="d-inline-block align-top" src="{{ url_for('static',filename='images/vac-logo.png') }}" width="120" height="80" style="margin-left: 25px;"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-              aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/home">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/about">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/cert">Get Certificate</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/contactUs">Contact Us</a>
-                </li>
-                <form class="form-inline" style="margin-left: 40px;" action="/admin" method="get">
+         <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white">
+        <a class="navbar-brand" href="http://127.0.0.1:5000/"><img class="d-inline-block align-top" src="{{ url_for('static',filename='images/vac-logo.png') }}" width="120" height="80" style="margin-left: 25px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="http://127.0.0.1:5000/">Home</a>
+            </li>
+<!--            <li class="nav-item" action="/about" method="get">-->
+<!--              &lt;!&ndash; <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="http://127.0.0.1:5000/about">About Us</a> &ndash;&gt;-->
+<!--                <button type="submit" style="background-color:white; border:none" class="nav-link"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/about"> About Us</button>-->
+<!--            </li>-->
+
+              <form class="nav-item" action="/faq" method="get">
+              <button type="submit" style="background-color:white; border:none" class="nav-link"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/faq"> FAQ </button>
+            </form>
+
+              <form class="nav-item" action="/cert" method="get">
+              <button type="submit" style="background-color:white; border:none" class="nav-link"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/cert"> Get Certificate</button>
+            </form>
+
+
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="contact_us.html">Contact Us</a>-->
+<!--            </li>-->
+
+              <form class="nav-item" action="/contactUs" method="get">
+              <button type="submit" style="background-color:white; border:none" class="nav-link"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/contactUs"> ContactUS </button>
+            </form>
+
+           <form class="form-inline" style="margin-left: 40px;" action="/admin" method="get">
             <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" style="margin-right: 1pc;" href="http://127.0.0.1:5000/admin"> Admin </button>
              </form>
               <form class="form-inline" action="/register" method="get">
               <button type="submit"  class="btn btn-primary btn-md my-2 my-sm-0"  data-toggle="collapse" data-target=".navbar-collapse.show" href="http://127.0.0.1:5000/sign-in"> Register/ Sign In yourself </button>
             </form>
-              </ul>
-            </div>
-          </nav>
+          </ul>
+        </div>
+      </nav>
         <section id="login_section">
             <div id="login">
                 <h3 class="text-center text-white pt-5">Admin Login</h3>
