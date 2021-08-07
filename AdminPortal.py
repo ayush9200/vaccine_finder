@@ -1,11 +1,9 @@
-import pymongo
+import triggerEmail
 
 
 class AdminPortal:
 
-    def authenticate(self, username, password):
-        connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-        my_client = pymongo.MongoClient(connection_string)
+    def authenticate(self, username, password, my_client):
         db = my_client["Vaccine_Finder"]
         admin_cred = db["Admin"]
         results = admin_cred.find({"$and": [{"username": username}, {"pass": password}]})
@@ -15,16 +13,13 @@ class AdminPortal:
         return cred
 
 
-    def getAppointmentStatus(self):
-        connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-        my_client = pymongo.MongoClient(connection_string)
+    def getAppointmentStatus(self, my_client):
         db = my_client["Vaccine_Finder"]
         vaccine = db["Appointments"]
         results = vaccine.find()
         countForTotal = 0
         for row in results:
             countForTotal += 1
-           # print(row)
 
         ongoing = countForTotal - 2
         upcoming = 2
@@ -33,9 +28,7 @@ class AdminPortal:
         list_To_Return = [ongoing, upcoming, cancelled, total]
         return list_To_Return
 
-    def getVaccinationStatus(self):
-        connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-        my_client = pymongo.MongoClient(connection_string)
+    def getVaccinationStatus(self, my_client):
         db = my_client["Vaccine_Finder"]
         vaccine = db["Appointments"]
         available_vc = 240
@@ -46,9 +39,7 @@ class AdminPortal:
         return vaccination_status
 
 
-    def getAllUserDetails(self):
-        connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-        my_client = pymongo.MongoClient(connection_string)
+    def getAllUserDetails(self, my_client):
         db = my_client["Vaccine_Finder"]
         appointment_collection = db["Appointments"]
         listOfUsers = appointment_collection.find()
@@ -67,9 +58,7 @@ class AdminPortal:
 
         return dataList
 
-    def getAllNonVaccinatedUsers(self):
-        connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-        my_client = pymongo.MongoClient(connection_string)
+    def getAllNonVaccinatedUsers(self, my_client):
         db = my_client["Vaccine_Finder"]
         appointment_collection = db["Appointments"]
         listOfUsers = appointment_collection.find()
@@ -87,24 +76,21 @@ class AdminPortal:
 
         return dataList
 
-    def markUserAsVaccinated(self, passportNo):
+    def markUserAsVaccinated(self, passportNo, my_client):
         try:
-            connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-            my_client = pymongo.MongoClient(connection_string)
             db = my_client["Vaccine_Finder"]
             appointment_collection = db["Appointments"]
             whereClause = {"passport": passportNo}
             setValue = {"$set": {"vaccinationCompleted": True}}
             appointment_collection.update_one(whereClause, setValue)
+            self.fireEmailAfterUpdate(passportNo)
             return True
         except:
             return False
 
-    def getVaccineStatusLocationWise(self):
+    def getVaccineStatusLocationWise(self, my_client):
         vaccineDataList = []
         try:
-            connection_string = "mongodb+srv://dbUser:dbUser@cluster0.w78tt.mongodb.net/Vaccine_Finder?retryWrites=true&w=majority"
-            my_client = pymongo.MongoClient(connection_string)
             db = my_client["Vaccine_Finder"]
             vaccine_collection = db["VaccineLocations"]
             listFromMongo = vaccine_collection.find()
@@ -114,3 +100,16 @@ class AdminPortal:
         except:
             return False
         return vaccineDataList
+
+    def fireEmailAfterUpdate(self, passportNo, my_client):
+        try:
+            db = my_client["Vaccine_Finder"]
+            appointment_collection = db["Appointments"]
+            results = appointment_collection.find({"passport": passportNo})
+            emailId = results.get("email")
+            subject = "Congratulations! You are now fully vaccinated. Please get your Vaccine Certificate from our " \
+                      "website.\n Also please follow all mandatory rules that have been specially made for vaccinated " \
+                      "citizens. "
+            triggerEmail.send_email(emailId, subject)
+        except:
+            return False

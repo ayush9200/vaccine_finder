@@ -1,0 +1,133 @@
+2021-08-06 21:55:41,908 - VaccineFinder - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-06 21:57:41,773 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 21:57:41,788 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:41] "GET / HTTP/1.1" 200 -
+2021-08-06 21:57:41,875 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:41] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 21:57:41,880 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:41] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 21:57:41,954 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:41] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 21:57:42,062 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:42] "[36mGET /static/images/baanner2.jpg HTTP/1.1[0m" 304 -
+2021-08-06 21:57:42,068 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:42] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 21:57:53,386 - VaccineFinder - INFO - Redirecting to Admin Panel
+2021-08-06 21:57:53,414 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:53] "GET /admin HTTP/1.1" 200 -
+2021-08-06 21:57:53,460 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:53] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 21:57:53,466 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:53] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 21:57:53,538 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:53] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 21:57:53,619 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:57:53] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 21:58:01,244 - VaccineFinder - INFO - Redirecting to Admin Login Panel
+2021-08-06 21:58:01,397 - VaccineFinder - INFO - Admin authentication started
+2021-08-06 21:58:01,783 - VaccineFinder - INFO - Get Appointment Status
+2021-08-06 21:58:01,809 - VaccineFinder - INFO - Get overall Vaccination Status
+2021-08-06 21:58:01,810 - VaccineFinder - INFO - Get user details for Admin
+2021-08-06 21:58:01,838 - VaccineFinder - INFO - Get all non vaccinated users
+2021-08-06 21:58:01,872 - VaccineFinder - INFO - Get Vaccine availability based on locations
+2021-08-06 21:58:01,927 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:01] "POST /admin-login HTTP/1.1" 200 -
+2021-08-06 21:58:01,997 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:01] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 21:58:02,029 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:02] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 21:58:02,142 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:02] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 21:58:02,263 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:02] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 21:58:36,542 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:36] "[33mGET /sign-in HTTP/1.1[0m" 404 -
+2021-08-06 21:58:53,337 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:58:53] "[33mGET /sign-in HTTP/1.1[0m" 404 -
+2021-08-06 21:59:02,355 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 21:59:02,357 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:59:02] "GET / HTTP/1.1" 200 -
+2021-08-06 21:59:02,421 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:59:02] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 21:59:02,436 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:59:02] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 21:59:02,491 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:59:02] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 21:59:02,579 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:59:02] "[36mGET /static/images/baanner2.jpg HTTP/1.1[0m" 304 -
+2021-08-06 21:59:02,591 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 21:59:02] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:29:38,585 - VaccineFinder - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-06 22:29:47,219 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:29:47,275 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:47] "GET / HTTP/1.1" 200 -
+2021-08-06 22:29:47,436 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:47] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:29:47,440 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:47] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:29:47,572 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:47] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:29:47,686 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:47] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:29:50,293 - VaccineFinder - INFO - Redirecting to Admin Panel
+2021-08-06 22:29:50,305 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:50] "GET /admin HTTP/1.1" 200 -
+2021-08-06 22:29:50,352 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:50] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:29:50,356 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:50] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:29:50,387 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:50] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:29:50,492 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:50] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:29:57,933 - VaccineFinder - INFO - Redirecting to Admin Login Panel
+2021-08-06 22:29:58,037 - VaccineFinder - INFO - Admin authentication started
+2021-08-06 22:29:58,486 - VaccineFinder - INFO - Get Appointment Status
+2021-08-06 22:29:58,527 - VaccineFinder - INFO - Get overall Vaccination Status
+2021-08-06 22:29:58,528 - VaccineFinder - INFO - Get user details for Admin
+2021-08-06 22:29:58,559 - VaccineFinder - INFO - Get all non vaccinated users
+2021-08-06 22:29:58,583 - VaccineFinder - INFO - Get Vaccine availability based on locations
+2021-08-06 22:29:58,636 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:58] "POST /admin-login HTTP/1.1" 200 -
+2021-08-06 22:29:58,692 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:58] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:29:58,719 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:58] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:29:58,787 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:29:58] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:29,698 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:30:29,701 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:29] "GET / HTTP/1.1" 200 -
+2021-08-06 22:30:29,778 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:29] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:29,780 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:29] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:29,871 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:29] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:30,017 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:30] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:31,561 - VaccineFinder - INFO - Redirecting to Register page
+2021-08-06 22:30:31,573 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:31] "GET /register HTTP/1.1" 200 -
+2021-08-06 22:30:31,621 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:31] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:31,631 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:31] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:31,651 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:31] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:31,758 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:31] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:34,444 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:30:34,446 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:34] "GET / HTTP/1.1" 200 -
+2021-08-06 22:30:34,512 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:34] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:34,528 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:34] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:34,587 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:34] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:34,711 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:34] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:37,363 - VaccineFinder - INFO - Redirecting to Register page
+2021-08-06 22:30:37,365 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:37] "GET /register HTTP/1.1" 200 -
+2021-08-06 22:30:37,421 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:37] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:37,431 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:37] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:37,455 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:37] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:37,567 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:37] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:47,798 - VaccineFinder - INFO - Redirecting to Registration/Sign Login Panel
+2021-08-06 22:30:47,798 - VaccineFinder - INFO - Sign in clicked
+2021-08-06 22:30:48,127 - VaccineFinder - WARNING - User login failed
+2021-08-06 22:30:48,149 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:48] "POST /register-login HTTP/1.1" 200 -
+2021-08-06 22:30:48,201 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:48] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:48,204 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:48] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:48,237 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:48] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:48,336 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:48] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:54,583 - VaccineFinder - INFO - Redirecting to Register page
+2021-08-06 22:30:54,585 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:54] "GET /register HTTP/1.1" 200 -
+2021-08-06 22:30:54,630 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:54] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:54,637 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:54] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:54,661 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:54] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:54,762 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:54] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:57,645 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:30:57,647 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:57] "GET / HTTP/1.1" 200 -
+2021-08-06 22:30:57,710 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:57] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:57,714 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:57] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:30:57,787 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:57] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:57,899 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:57] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:30:58,931 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:30:58] "[33mGET /about HTTP/1.1[0m" 404 -
+2021-08-06 22:31:10,802 - VaccineFinder - INFO - Redirecting to Certificate page
+2021-08-06 22:31:10,819 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:10] "GET /cert HTTP/1.1" 200 -
+2021-08-06 22:31:10,869 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:10] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:10,883 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:10] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:10,925 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:10] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:10,990 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:10] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:15,072 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:31:15,074 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:15] "GET / HTTP/1.1" 200 -
+2021-08-06 22:31:15,136 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:15] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:15,143 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:15] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:15,199 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:15] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:15,293 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:15] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:16,812 - VaccineFinder - INFO - Redirecting to Contact Us
+2021-08-06 22:31:16,824 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:16] "GET /contactUs HTTP/1.1" 200 -
+2021-08-06 22:31:16,889 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:16] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:16,893 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:16] "[36mGET /static/login-page.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:16,932 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:16] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:39,335 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:31:39,338 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:39] "GET / HTTP/1.1" 200 -
+2021-08-06 22:31:39,408 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:39] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:39,426 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:39] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:39,492 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:39] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:39,593 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:39] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:49,511 - VaccineFinder - INFO - Redirecting to homepage
+2021-08-06 22:31:49,512 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:49] "GET / HTTP/1.1" 200 -
+2021-08-06 22:31:49,597 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:49] "[36mGET /static/header.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:49,619 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:49] "[36mGET /static/homepage.css HTTP/1.1[0m" 304 -
+2021-08-06 22:31:49,725 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:49] "[36mGET /static/images/vac-logo.png HTTP/1.1[0m" 304 -
+2021-08-06 22:31:49,842 - VaccineFinder - INFO - 127.0.0.1 - - [06/Aug/2021 22:31:49] "[36mGET /static/images/Vectorbg.png HTTP/1.1[0m" 304 -
